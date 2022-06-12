@@ -9,21 +9,7 @@ const Home: NextPage = () => {
   const [messages, setMessages] = useState([])
   const [message, setMessage] = useState('')
   let allMessages = [] as any
-
-  const submit = async (e: any) => {
-    e.preventDefault()
-    await fetch('http://localhost:3000/api/message', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        username,
-        message,
-      }),
-    })
-    setMessage('')
-  }
+  console.log(allMessages)
 
   useEffect(() => {
     Pusher.logToConsole = true
@@ -38,6 +24,21 @@ const Home: NextPage = () => {
       setMessages(allMessages)
     })
   }, [])
+
+  const submit = async (e: any) => {
+    e.preventDefault()
+    await fetch('http://localhost:3000/api', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        username,
+        message,
+      }),
+    })
+    setMessage('')
+  }
 
   return (
     <div>
