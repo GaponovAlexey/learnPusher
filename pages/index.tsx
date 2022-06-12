@@ -13,9 +13,7 @@ const Home: NextPage = () => {
   useEffect(() => {
     Pusher.logToConsole = true
 
-    const pusher = new Pusher('c5b6b19d7f78dc9bbd77', {
-      cluster: 'eu',
-    })
+    const pusher = new Pusher('c5b6b19d7f78dc9bbd77', {cluster: 'eu',})
 
     const channel = pusher.subscribe('chat')
     channel.bind('message', function (data: any) {
