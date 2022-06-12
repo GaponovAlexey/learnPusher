@@ -9,7 +9,6 @@ const Home: NextPage = () => {
   const [messages, setMessages] = useState([])
   const [message, setMessage] = useState('')
   let allMessages = [] as any
-  console.log(allMessages)
 
   useEffect(() => {
     Pusher.logToConsole = true
